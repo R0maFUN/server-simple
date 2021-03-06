@@ -1,5 +1,5 @@
 import asyncio
-from server.my_network import run_connection
+from server.network import run_connection
 
 
 def main():

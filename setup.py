@@ -1,16 +1,18 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 setup(
     name="server",
     entry_points={
       'console_scripts': [
         'server = server.app:main',
-        'my_network = server.my_network'
+        'my_network = server.network'
       ]
     },
     version="0.0.1",
-    packages=["server",],
-    # install_requires=['server.my_network'],
+    python_requires='>=3.8',
+    packages=["server", ],
+    setup_requires=['pytest-runner'],
+    tests_requires=['pytest'],
     url="",
     license="",
     author="Konstantin Morozov",
