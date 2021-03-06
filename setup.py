@@ -10,7 +10,6 @@ setup(
     entry_points={
         "console_scripts": [
             "server = server.app:main",
-            "network = server.network",
         ]
     },
     version="0.0.1",

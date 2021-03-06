@@ -22,7 +22,6 @@ repos:
       language: system
       types: [ python ]
       args: [ --max-complexity=10,
-              --ignore-docstrings=yes,
                 server ]
 #    - id: pylint
 #      name: pylint
