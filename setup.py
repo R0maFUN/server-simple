@@ -10,14 +10,12 @@ setup(
     entry_points={
         "console_scripts": [
             "server = server.app:main",
-            "my_network = server.network",
+            "network = server.network",
         ]
     },
     version="0.0.1",
     python_requires=">=3.8",
-    packages=[
-        "server",
-    ],
+    packages=["server", "server.network"],
     setup_requires=["pytest-runner"],
     tests_requires=["pytest"],
     url="",
