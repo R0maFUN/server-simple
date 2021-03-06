@@ -1,2 +1,7 @@
 env/
 .idea/
+server.egg-info/
+build/
+dist/
+server.egg-info
+

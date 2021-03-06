@@ -1,8 +1,8 @@
 import asyncio
-from network import run_connection
+from server.my_network import run_connection
 
 
-if __name__ == "__main__":
+def main():
     loop = asyncio.get_event_loop()
     run_accepts = asyncio.start_server(
         client_connected_cb=run_connection,
@@ -20,3 +20,7 @@ if __name__ == "__main__":
         server.close()
         loop.run_until_complete(server.wait_closed())
         loop.close()
+
+
+if __name__ == "__main__":
+    main()
