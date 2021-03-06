@@ -1,5 +1,10 @@
-import pytest
+"""
+    @TODO write docs
+"""
 
 
 def test_basic():
-    assert(1, 2, 3) == (1, 2, 3)
+    """
+    example basic test
+    """
+    assert (1, 2, 3) == (1, 2, 3)

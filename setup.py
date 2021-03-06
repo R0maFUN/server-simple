@@ -1,18 +1,25 @@
-from setuptools import find_packages, setup
+"""
+    @TODO write docs
+"""
+
+
+from setuptools import setup
 
 setup(
     name="server",
     entry_points={
-      'console_scripts': [
-        'server = server.app:main',
-        'my_network = server.network'
-      ]
+        "console_scripts": [
+            "server = server.app:main",
+            "my_network = server.network",
+        ]
     },
     version="0.0.1",
-    python_requires='>=3.8',
-    packages=["server", ],
-    setup_requires=['pytest-runner'],
-    tests_requires=['pytest'],
+    python_requires=">=3.8",
+    packages=[
+        "server",
+    ],
+    setup_requires=["pytest-runner"],
+    tests_requires=["pytest"],
     url="",
     license="",
     author="Konstantin Morozov",
