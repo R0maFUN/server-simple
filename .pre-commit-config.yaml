@@ -27,14 +27,14 @@ repos:
 #              --ignore-comments=yes,
 #              --ignore-docstrings=yes,
 #              server ]
-#    - id: flake8
-#      name: flake8
-#      entry: flake8
-#      language: system
-#      types: [ python ]
-#      args: [ --max-complexity=10,
-#              --ignore-docstrings=yes,
-#                server ]
+    - id: flake8
+      name: flake8
+      entry: flake8
+      language: system
+      types: [ python ]
+      args: [ --max-complexity=10,
+              --ignore-docstrings=yes,
+                server ]
 
 
 #    - id: tests
