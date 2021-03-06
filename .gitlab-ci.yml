@@ -8,29 +8,47 @@ cache:
     - .cache/pip
     - venv/
 
-before_script:
-  - python -V  # Print out python version for debugging
-  - pip install virtualenv
-  - virtualenv venv
-  - source venv/bin/activate
-  - pip install -r requirements.txt
+stages:
+  - build
+  - test
 
 test:
-   script:
-#     - python setup.py test
+  stage: test
+  before_script:
+    - python -V
+    - pip install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
+    - pip install -r requirements.txt
+  script:
      - pytest -V
-#     - pip install tox flake8  # you can also use tox
-#     - tox -e py36,flake8
 
-run:
-   script:
+setup:
+  stage: build
+  before_script:
+    - python -V  # Print out python version for debugging
+    - pip install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
+    - pip install -r requirements.txt
+  script:
      - python setup.py bdist_wheel
-     # an alternative approach is to install and run:
      - pip install dist/*
-     # run the command here
-   artifacts:
-     paths:
-       - dist/*.whl
+  artifacts:
+    paths:
+      - dist/*.whl
+
+docker-build:
+  image: docker:stable
+  stage: build
+  services:
+    - docker:dind
+  script:
+    - docker login --username kstmorozov --password "$DOCKER_TOKEN"
+    - docker build -t kstmorozov/goodok-server .
+    - docker push kstmorozov/goodok-server:latest
+  only:
+    - master
 
 #pages:
 #  script:
